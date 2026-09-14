@@ -1,0 +1,177 @@
+{% extends 'home/base.html' %}
+
+
+{% block title %}
+
+{{ project.title }} | Hithesh R Shetty
+
+{% endblock %}
+
+
+{% block content %}
+
+
+<section class="project-detail">
+
+
+    <div class="project-detail-bg"></div>
+
+
+    <div class="container">
+
+
+        <!-- Back -->
+
+        <a
+            href="{% url 'home' %}#projects"
+            class="back-link"
+        >
+
+            ← Back to Projects
+
+        </a>
+
+
+        <!-- Category -->
+
+        <p class="project-detail-category">
+
+            {{ project.category }}
+
+        </p>
+
+
+        <!-- Title -->
+
+        <h1 class="project-title">
+
+            {{ project.title }}
+
+        </h1>
+
+
+        <!-- Image -->
+
+        {% if project.image %}
+
+            <div class="project-detail-image">
+
+                <img
+                    src="{{ project.image.url }}"
+                    alt="{{ project.title }}"
+                >
+
+            </div>
+
+        {% endif %}
+
+
+
+        <!-- Description -->
+
+        <div class="project-detail-content">
+
+
+            <h2>
+                About the Project
+            </h2>
+
+
+            <p>
+                {{ project.description|linebreaksbr }}
+            </p>
+
+
+        </div>
+
+
+
+        <!-- Technologies -->
+
+        <div class="technologies-section">
+
+
+            <h2>
+                Technologies Used
+            </h2>
+
+
+            <div class="technology-list">
+
+
+                {% for technology in project.technologies.all %}
+
+                    <div class="technology-block">
+
+                        <span class="technology-icon">
+                            ◆
+                        </span>
+
+                        <span>
+                            {{ technology.name }}
+                        </span>
+
+                    </div>
+
+
+                {% empty %}
+
+                    <p>
+                        No technologies added.
+                    </p>
+
+                {% endfor %}
+
+
+            </div>
+
+        </div>
+
+
+
+        <!-- Project Links -->
+
+        <div class="project-actions">
+
+
+            {% if project.github_url %}
+
+                <a
+                    href="{{ project.github_url }}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-primary"
+                >
+
+                    GitHub →
+
+                </a>
+
+            {% endif %}
+
+
+            {% if project.live_url %}
+
+                <a
+                    href="{{ project.live_url }}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-outline"
+                >
+
+                    Live Demo →
+
+                </a>
+
+            {% endif %}
+
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+{% endblock %}

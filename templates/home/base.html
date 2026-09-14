@@ -1,0 +1,94 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        {% block title %}
+        Hithesh R Shetty | Data Science
+        {% endblock %}
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="{% static 'home/css/style.css' %}"
+    >
+
+</head>
+
+
+<body>
+
+    <!-- Navigation -->
+
+    <header class="navbar">
+
+        <div class="nav-container">
+
+            <a
+                href="{% url 'home' %}"
+                class="logo"
+            >
+                Hithesh R Shetty
+            </a>
+
+
+            <button
+                class="menu-toggle"
+                aria-label="Toggle navigation"
+            >
+                ☰
+            </button>
+
+
+            <nav class="nav-menu">
+                <a href="{% url 'home' %}#about">About</a>
+                <a href="{% url 'home' %}#skills">Skills</a>
+                <a href="{% url 'home' %}#experience">Intership</a>
+                <a href="{% url 'home' %}#projects">Projects</a>
+                <a href="{% url 'home' %}#certifications">Certifications</a>
+                <a href="{% url 'home' %}#contact">Contact</a>
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    {% block content %}
+    {% endblock %}
+
+
+    <!-- Footer -->
+
+    <footer class="footer">
+
+        <div class="container">
+
+            <p>
+                © 2026 Hithesh R Shetty.
+                Built with Django.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <script
+        src="{% static 'home/js/script.js' %}"
+    ></script>
+
+</body>
+
+</html>

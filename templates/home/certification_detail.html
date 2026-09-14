@@ -1,0 +1,120 @@
+{% extends 'home/base.html' %}
+
+
+{% block title %}
+
+{{ certification.title }} | Hithesh R Shetty
+
+{% endblock %}
+
+
+{% block content %}
+
+
+<section class="project-detail">
+
+
+    <div class="container">
+
+
+        <a
+            href="{% url 'home' %}#certifications"
+            class="back-link"
+        >
+
+            ← Back to Certifications
+
+        </a>
+
+
+        <p class="project-detail-category">
+
+            {{ certification.issuer }}
+
+        </p>
+
+
+        <h1 class="project-title">
+
+            {{ certification.title }}
+
+        </h1>
+
+
+        <div class="project-detail-content">
+
+            {% if certification.description %}
+                <div class="certification-description">
+                    <h2>About the Certification</h2>
+
+                    <p>
+                        {{ certification.description|linebreaksbr }}
+                    </p>
+                </div>
+            {% endif %}
+
+
+            <div class="certification-info">
+
+                {% if certification.issue_date %}
+                    <p>
+                        <strong>Issue Date:</strong>
+                        {{ certification.issue_date }}
+                    </p>
+                {% endif %}
+
+                {% if certification.credential_id %}
+                    <p>
+                        <strong>Credential ID:</strong>
+                        {{ certification.credential_id }}
+                    </p>
+                {% endif %}
+
+            </div>
+
+        </div>
+
+
+        <div class="project-actions">
+
+
+            {% if certification.certificate %}
+
+                <a
+                    href="{{ certification.certificate.url }}"
+                    target="_blank"
+                    class="btn btn-primary"
+                >
+
+                    View Certificate →
+
+                </a>
+
+            {% endif %}
+
+
+            {% if certification.credential_url %}
+
+                <a
+                    href="{{ certification.credential_url }}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-outline"
+                >
+
+                    Verify Credential →
+
+                </a>
+
+            {% endif %}
+
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+{% endblock %}
