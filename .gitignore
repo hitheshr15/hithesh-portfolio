@@ -31,3 +31,6 @@ staticfiles/
 Thumbs.db
 
 .env.vercel
+.vercel
+.env*
+.env.local
