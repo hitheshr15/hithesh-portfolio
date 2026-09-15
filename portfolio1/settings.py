@@ -34,6 +34,11 @@ DEBUG = os.getenv("DEBUG", "True") == "True"
 ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
+    '.vercel.app',
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://*.vercel.app',
 ]
 
 # Application definition
