@@ -1,4 +1,5 @@
 {% extends 'home/base.html' %}
+{% load static %}
 
 
 {% block title %}
@@ -65,6 +66,14 @@ Hithesh R Shetty | Data Analyst | ML | Django
                     class="btn btn-primary"
                 >
                     View My Projects →
+                </a>
+
+                <a
+                    href="{% static 'home/resume/Hithesh_R_Shetty_ResumeP.pdf' %}"
+                    download
+                    class="btn btn-primary"
+                >
+                    Download Resume ↓
                 </a>
 
 
@@ -692,14 +701,10 @@ Hithesh R Shetty | Data Analyst | ML | Django
 <!-- CONTACT -->
 <!-- ========================= -->
 
-<!-- ========================= -->
-<!-- CONTACT SECTION -->
-<!-- ========================= -->
-
 <section
     id="contact"
     class="section contact-section"
->
+    >
 
     <div class="container">
 
@@ -1074,6 +1079,6 @@ Hithesh R Shetty | Data Analyst | ML | Django
 
     </div>
 
-</section>
+    </section>
 
 {% endblock %}
